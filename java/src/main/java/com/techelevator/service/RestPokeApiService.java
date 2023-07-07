@@ -50,7 +50,7 @@ public class RestPokeApiService implements PokeApiService {
     @Override
     public PokemonDetail getPokemonDetailById(int id) {
         PokemonDetail pokemonDetail = restTemplate.getForObject(API_URL + id, PokemonDetail.class);
-        System.out.println(pokemonDetail);
+//        System.out.println(pokemonDetail);
         return pokemonDetail;
     }
 }
