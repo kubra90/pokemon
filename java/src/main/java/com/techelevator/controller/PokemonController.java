@@ -3,12 +3,10 @@ package com.techelevator.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.techelevator.model.Pokemon;
+import com.techelevator.model.PokemonDetail;
 import com.techelevator.service.PokeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +25,11 @@ public class PokemonController
     @RequestMapping(path= "/pokemon", method= RequestMethod.GET)
     public List<Pokemon> getAllPokemon() throws JsonProcessingException {
         return service.getPokemon();
+    }
+
+    @GetMapping (path="/pokemon/{id}")
+    public PokemonDetail getPokemonDetailById(@PathVariable int id) {
+        return service.getPokemonDetailById(id);
     }
 
 }
