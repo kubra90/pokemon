@@ -34,7 +34,8 @@ public class RestPokeApiService implements PokeApiService {
             //path(i) --what array element
             String name =root.path(i).path("name").asText();
             String url = root.path(i).path("url").asText();
-            int pokemonIndex = url.indexOf("pokemon");
+            int pokemonIndex = url.indexOf("pokemon"); // this should return "pokemon/XXX"
+
             String pokemonString = url.substring(pokemonIndex);
             int slashIndex = pokemonString.indexOf("/");
 
