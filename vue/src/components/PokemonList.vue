@@ -30,4 +30,8 @@ export default {
 
 <style>
 
+ul >li {
+    list-style-type :none;
+}
+
 </style>

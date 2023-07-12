@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Pokemon from '../views/Pokemon.vue'
+import Detail from '../views/Detail.vue'
 
 Vue.use(Router)
 
@@ -58,6 +59,15 @@ const router = new Router({
       path: "/pokemon",
       name: "pokemon",
       component: Pokemon,
+      // this refer to the "import Pokemon" above!
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/detail/:id",
+      name: "detail",
+      component: Detail,
       // this refer to the "import Pokemon" above!
       meta: {
         requiresAuth: true
