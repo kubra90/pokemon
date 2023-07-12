@@ -1,12 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <h2> {{ pokemon.name }}</h2>
+    <p> Height: {{ pokemon.height }}</p>
+    <img v-bind:src="spriteImgFront" /> &nbsp;
+    <img :src= "spriteImgBack"  />  
+</div>
 
 </template>
 
 <script>
-import pokemonService from '../services/PokemonService';
+import pokemonService from '../services/PokemonService.js';
 export default {
-     name: 'pokemon-detail',
+     name: "pokemon-detail",
      props: {
         //id can be either number and string
         id: Number, String

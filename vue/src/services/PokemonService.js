@@ -11,7 +11,7 @@ export default {
         return http.get('/pokemon');
     },
     getPokemonById(id){
-        return http.get(`/detail/${id}`)
+        return http.get(`/pokemon/${id}`)
     }
 
 
