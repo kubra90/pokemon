@@ -2,7 +2,13 @@
     <div>
 <ul>    
   <li v-for = "pokemon in pokemonArray" v-bind:key="pokemon.id">
-{{ pokemon.name }}</li>
+  <router-link v-bind:to = " {
+    name : 'detail',
+    params : {
+        id: pokemon.id
+    }
+  }"> {{ pokemon.name }}</router-link>
+</li>
 </ul>
     </div>
   
