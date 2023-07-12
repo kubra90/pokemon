@@ -9,6 +9,9 @@ export default {
     //get all Pokemon
     getAllPokemon() {
         return http.get('/pokemon');
+    },
+    getPokemonById(id){
+        return http.get(`/detail/${id}`)
     }
 
 
