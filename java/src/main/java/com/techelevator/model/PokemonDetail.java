@@ -14,6 +14,17 @@ public class PokemonDetail {
     @JsonProperty("sprites")
     private Sprite sprite;
 
+    @JsonProperty ("name")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -62,6 +73,7 @@ public class PokemonDetail {
                 ", height=" + height +
                 ", weight=" + weight +
                 ", sprite=" + sprite +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

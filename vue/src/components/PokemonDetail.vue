@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2> {{ pokemon.name }}</h2>
+    <h2> {{ pokemon.name}}</h2>
     <p> Height: {{ pokemon.height }}</p>
     <img v-bind:src="spriteImgFront" /> &nbsp;
     <img :src= "spriteImgBack"  />  
