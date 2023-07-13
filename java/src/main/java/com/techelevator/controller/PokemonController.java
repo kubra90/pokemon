@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.techelevator.dao.PokemonDao;
 import com.techelevator.model.Pokemon;
 import com.techelevator.model.PokemonDTO;
 import com.techelevator.model.PokemonDetail;
@@ -20,6 +21,8 @@ public class PokemonController
     @Autowired
     PokeApiService service;
     //spring is charge of the object and construction that i need
+    @Autowired
+    PokemonDao dao;
 
 
     //localhost:9000/pokemon
@@ -34,8 +37,8 @@ public class PokemonController
     }
 
     @PostMapping (path = "/pokemon")
-    public void saveFavorite(@RequestBody PokemonDTO pokemon){
-
+    public void saveFavoritePokemon(@RequestBody PokemonDTO pokemon){
+        dao.savePokemon(pokemon);
     }
 
 }

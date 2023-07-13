@@ -28,8 +28,12 @@ export default {
         }
      },
      methods: {
-        savePokemon() {
-            pokemonService.saveFavorite(this.pokemon)
+        savePokemon() { 
+            let pokemonToSave = {
+                id :this.id,
+                name: this.name
+            }
+            pokemonService.saveFavorite(pokemonToSave)
             .then(response => {
                 console.log(response);
             })
