@@ -15,6 +15,8 @@
                 </router-link>
             </li>
         </ul>
+        <button>Previous</button> &nbsp; | &nbsp;
+        <button>Next</button> 
     </div>
 </template>
 

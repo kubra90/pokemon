@@ -20,7 +20,9 @@ export default new Vuex.Store({
   
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    startingVal : 0,
+    endingVal: 20
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,6 +40,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    GET_NEXT_PREVIOUS_POKEMON(state, values){
+      state.startingVal = values.startingVal;
+      state.endingVal = values.endingVal;
     }
   }
 })
