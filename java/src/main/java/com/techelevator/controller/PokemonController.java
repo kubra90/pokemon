@@ -3,6 +3,7 @@ package com.techelevator.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.techelevator.model.Pokemon;
+import com.techelevator.model.PokemonDTO;
 import com.techelevator.model.PokemonDetail;
 import com.techelevator.service.PokeApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,8 @@ public class PokemonController
     }
 
     @PostMapping (path = "/pokemon")
-    public void saveFavorite(@RequestBody)
+    public void saveFavorite(@RequestBody PokemonDTO pokemon){
+
+    }
 
 }
