@@ -12,6 +12,10 @@ export default {
     },
     getPokemonById(id){
         return http.get(`/pokemon/${id}`)
+    },
+
+    saveFavorite(pokemon) {
+        return http.post('/pokemon', pokemon)
     }
 
 

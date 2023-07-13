@@ -32,4 +32,7 @@ public class PokemonController
         return service.getPokemonDetailById(id);
     }
 
+    @PostMapping (path = "/pokemon")
+    public void saveFavorite(@RequestBody)
+
 }

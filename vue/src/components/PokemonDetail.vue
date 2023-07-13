@@ -1,9 +1,12 @@
 <template>
   <div>
-    <h2> {{ pokemon.name}}</h2>
+    <h2> {{name}}</h2>
     <p> Height: {{ pokemon.height }}</p>
     <img v-bind:src="spriteImgFront" /> &nbsp;
     <img :src= "spriteImgBack"  />  
+    <div>   
+        <button v-on:click="savePokemon">Save as Favorite?</button>    
+    </div>
 </div>
 
 </template>
@@ -14,13 +17,22 @@ export default {
      name: "pokemon-detail",
      props: {
         //id can be either number and string
-        id: Number, String
+        id: Number, String,
+        name : String
      },
      data() {
         return {
             pokemon : {},
             spriteImgFront: "",
             spriteImgBack: ""
+        }
+     },
+     methods: {
+        savePokemon() {
+            pokemonService.saveFavorite(this.pokemon)
+            .then(response => {
+                console.log(response);
+            })
         }
      },
 created() {
