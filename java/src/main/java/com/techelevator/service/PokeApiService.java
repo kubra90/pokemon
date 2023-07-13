@@ -11,4 +11,6 @@ public interface PokeApiService {
     List<Pokemon> getPokemon() throws JsonProcessingException;
 
     PokemonDetail getPokemonDetailById(int id);
+
+    List<Pokemon> getMorePokemon(int startVal, int endVal);
 }

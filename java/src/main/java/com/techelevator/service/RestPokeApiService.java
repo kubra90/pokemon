@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techelevator.model.Pokemon;
 import com.techelevator.model.PokemonDetail;
+import com.techelevator.model.Results;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -58,5 +59,12 @@ public class RestPokeApiService implements PokeApiService {
         PokemonDetail pokemonDetail = restTemplate.getForObject(API_URL + id, PokemonDetail.class);
 //        System.out.println(pokemonDetail);
         return pokemonDetail;
+    }
+
+    @Override
+    public List<Pokemon> getMorePokemon(int startVal, int endVal) {
+        Results rs = restTemplate.getForObject(API_URL + "?offset=" + startVal + "&limit=20", Results.class
+                );
+        return null;
     }
 }

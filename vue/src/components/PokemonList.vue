@@ -15,8 +15,8 @@
                 </router-link>
             </li>
         </ul>
-        <button>Previous</button> &nbsp; | &nbsp;
-        <button>Next</button> 
+        <button v-if="$store.state.startingVal != '0'">Previous</button> &nbsp; | &nbsp;
+        <button @click="getNextPokemon">Next</button> 
     </div>
 </template>
 
@@ -28,6 +28,24 @@ export default {
       return {
         pokemonArray : []
       }
+   },
+   methods : {
+     getNextPokemon() {
+        let start = this.$store.state.startingVal;
+        let end = this.$store.state.endingVal;
+        start +=20;
+        end += 20;
+
+        pokemonService.getNewPokemonList(start, end)
+        .then(response => {
+            this.pokemonArray = response.data;
+            let values = {
+                startingVal : start,
+                endingVal : end
+            };
+            this.$store.commit("GET_NEXT_PREVIOUS_POKEMON", values);
+        })
+     }
    },
    created() {
     // use a service to query the backend
