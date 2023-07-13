@@ -37,6 +37,8 @@ export default {
             pokemonService.saveFavorite(pokemonToSave)
             .then(() => {
                 alert(`${this.name} has been saved to Favorites`);
+                //this push the route name pokemon
+                this.$router.push({ name : 'pokemon'});
             })
         }
      },
