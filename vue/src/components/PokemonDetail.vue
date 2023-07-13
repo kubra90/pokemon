@@ -31,11 +31,12 @@ export default {
         savePokemon() { 
             let pokemonToSave = {
                 id :this.id,
-                name: this.name
+                name: this.name,
+                url : this.$route.params.url
             }
             pokemonService.saveFavorite(pokemonToSave)
-            .then(response => {
-                console.log(response);
+            .then(() => {
+                alert(`${this.name} has been saved to Favorites`);
             })
         }
      },

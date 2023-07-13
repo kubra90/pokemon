@@ -7,7 +7,8 @@
                     name: 'detail',
                     params: {
                         id: pokemon.id,
-                        name : pokemon.name
+                        name : pokemon.name,
+                        url: pokemon.url
                     },
                 }">
                     {{ pokemon.name }}

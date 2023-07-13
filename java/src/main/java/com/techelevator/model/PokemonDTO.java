@@ -1,8 +1,11 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PokemonDTO {
 
     private int pokemonId;
+    @JsonProperty("id")
     private int apiId;
     private String name;
     private String url;
