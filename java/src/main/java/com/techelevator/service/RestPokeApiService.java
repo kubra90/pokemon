@@ -35,14 +35,8 @@ public class RestPokeApiService implements PokeApiService {
             //path(i) --what array element
             String name =root.path(i).path("name").asText();
             String url = root.path(i).path("url").asText();
-            int pokemonIndex = url.indexOf("pokemon"); // this should return "pokemon/XXX"
 
-            String pokemonString = url.substring(pokemonIndex);
-            int slashIndex = pokemonString.indexOf("/");
-
-            String number = pokemonString.substring(slashIndex + 1, pokemonString.length() -1);
-            int id = Integer.parseInt(number);
-
+            int id =calculateId(url);
             //create pokemon object and set the values and adding the values to the List.
             Pokemon temp = new Pokemon();
             temp.setId(id);
@@ -52,6 +46,18 @@ public class RestPokeApiService implements PokeApiService {
         }
 
         return pokemonList;
+    }
+
+    public int calculateId(String url){
+        int pokemonIndex = url.indexOf("pokemon"); // this should return "pokemon/XXX"
+
+        String pokemonString = url.substring(pokemonIndex);
+        int slashIndex = pokemonString.indexOf("/");
+
+        String number = pokemonString.substring(slashIndex + 1, pokemonString.length() -1);
+        int id = Integer.parseInt(number);
+        return id;
+
     }
 
     @Override
@@ -65,6 +71,12 @@ public class RestPokeApiService implements PokeApiService {
     public List<Pokemon> getMorePokemon(int startVal, int endVal) {
         Results rs = restTemplate.getForObject(API_URL + "?offset=" + startVal + "&limit=20", Results.class
                 );
-        return null;
+
+        List<Pokemon> list = rs.getResults();
+        for(Pokemon item: list){
+            int id = calculateId(item.getUrl());
+            item.setId(id);
+        }
+        return list;
     }
 }
