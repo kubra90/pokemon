@@ -39,6 +39,7 @@ export default {
                 alert(`${this.name} has been saved to Favorites`);
                 //this push the route name pokemon
                 this.$router.push({ name : 'pokemon'});
+                // this.$store.commit("GET_NEXT_PREVIOUS_POKEMON");
             })
         }
      },

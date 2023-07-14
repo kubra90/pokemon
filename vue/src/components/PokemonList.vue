@@ -15,7 +15,7 @@
                 </router-link>
             </li>
         </ul>
-        <button v-if="$store.state.startingVal != '0'">Previous</button> &nbsp; | &nbsp;
+        <button v-if="$store.state.startingVal != '0'" @click= "getPreviousPokemon">Previous</button> &nbsp; | &nbsp;
         <button @click="getNextPokemon">Next</button> 
     </div>
 </template>
@@ -45,6 +45,23 @@ export default {
             };
             this.$store.commit("GET_NEXT_PREVIOUS_POKEMON", values);
         })
+     },
+     getPreviousPokemon(){
+        let start = this.$store.state.startingVal;
+        let end = this.$store.state.endingVal;
+        start -= 20;
+        end -= 20;
+
+        pokemonService.getNewPokemonList(start, end)
+        .then(response => {
+            this.pokemonArray = response.data;
+            let values = {
+                startingVal : start,
+                endingVal : end
+            };
+            this.$store.commit("GET_NEXT_PREVIOUS_POKEMON", values);
+        })
+
      }
    },
    created() {
